@@ -1,0 +1,4 @@
+- name: Install the latest version of Docker CE
+  apt: name={{ item }} state={{ packages_state }} update_cache={{ update_cache }}
+  with_items:
+    - docker-ce

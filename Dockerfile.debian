@@ -1,0 +1,9 @@
+FROM gmauro/ansible:2.1-debian
+
+WORKDIR /tmp
+
+ADD local.yml /tmp/local.yml
+ADD vars /tmp/vars
+ADD tasks /tmp/tasks
+
+RUN ansible-playbook -i localhost, local.yml -e "@vars/main.yml"

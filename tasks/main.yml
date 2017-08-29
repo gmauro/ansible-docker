@@ -1,0 +1,25 @@
+# see https://docs.docker.com/engine/installation/
+
+- include: install_packages.yml
+  when:
+    - install_packages
+    - ansible_os_family == 'Debian'
+
+- include: add_apt_repo.yml
+  vars:
+    distribution_codename: debian
+  when:
+    - ansible_distribution == 'Debian'
+    - ansible_distribution_version >= 8
+
+- include: add_apt_repo.yml
+  vars:
+    distribution_codename: ubuntu
+  when:
+    - ansible_distribution == 'Ubuntu'
+    - ansible_distribution_version == "16.04"
+
+- include: install_docker.yml
+  when:
+    - install_packages
+    - ansible_os_family == 'Debian'
