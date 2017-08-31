@@ -1,6 +1,6 @@
-# Ansible Docker
+# Ansible Docker [![Build Status](https://travis-ci.org/gmauro/ansible-docker.svg?branch=master)](https://travis-ci.org/gmauro/ansible-docker)
 [Ansible](https://wwww.ansible.com) role to install [Docker-CE](http://www.docker.com) and extensions on Ubuntu or Debian systems .  
-[![Build Status](https://travis-ci.org/gmauro/ansible-docker.svg?branch=master)](https://travis-ci.org/gmauro/ansible-docker)
+
 
 ## Usage
 
