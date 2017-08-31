@@ -1,19 +1,22 @@
+- name: APT update
+  apt: update_cache={{ update_cache }} cache_valid_time=3600
+
 - name: Install packages to allow apt to use a repository over HTTPS
-  apt: name={{ item }} state={{ packages_state }} update_cache=yes
+  apt: name={{ item }} state={{ packages_state }}
   with_items:
     - apt-transport-https
     - ca-certificates
     - curl
 
 - name: Install package software-properties
-  apt: name={{ item }} state={{ packages_state }} update_cache={{ update_cache }}
+  apt: name={{ item }} state={{ packages_state }}
   with_items:
     - software-properties-common
   when:
       - ansible_distribution == 'Ubuntu'
 
 - name: Install package software-properties
-  apt: name={{ item }} state={{ packages_state }} update_cache={{ update_cache }}
+  apt: name={{ item }} state={{ packages_state }}
   with_items:
     - python-software-properties
   when:

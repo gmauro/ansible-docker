@@ -1,3 +1,4 @@
 packages_state: present
 install_packages: yes
 update_cache: yes
+install_docker_py: yes

@@ -3,7 +3,7 @@
 #   Short-cut to run local install tasks without setting up an inventory.
 #
 # Run roles locally via following command:
-#   ansible-playbook -i localhost, local.yml [-e "@vars/main.yml" ]
+#   ansible-playbook -i localhost, local.yml [-e "@defaults/main.yml" ]
 - hosts: localhost
   connection: local
   tasks:

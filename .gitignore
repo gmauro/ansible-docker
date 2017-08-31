@@ -1,4 +1,11 @@
-#Emacs
+# Ignore some common junk.
+*.swp
+*.lock
+*.orig
+*.retry
+.DS_Store
+
+# Emacs
 *~
 
 #PyCharm

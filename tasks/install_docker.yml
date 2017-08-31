@@ -2,3 +2,17 @@
   apt: name={{ item }} state={{ packages_state }} update_cache={{ update_cache }}
   with_items:
     - docker-ce
+
+- name: Install requirements for docker-py python package
+  apt: name={{ item }} state={{ packages_state }}
+  with_items:
+    - python-pip
+    - virtualenv
+  when:
+    - install_docker_py
+
+- name: Install docker-py python package.
+  pip:
+    name: docker
+  when:
+    - install_docker_py
