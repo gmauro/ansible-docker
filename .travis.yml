@@ -5,8 +5,10 @@ services:
  - docker
 
 env:
-  - FILENAME=Dockerfile.ubuntu
-  - FILENAME=Dockerfile.debian
+  - FILENAME=Dockerfile.ubuntu16.04
+  - FILENAME=Dockerfile.ubuntu18.04
+  - FILENAME=Dockerfile.debian8
+  - FILENAME=Dockerfile.debian9
 
 script:
 - docker build -t ansible-docker -f $FILENAME .

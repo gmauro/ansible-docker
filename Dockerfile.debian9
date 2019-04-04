@@ -1,4 +1,4 @@
-FROM gmauro/ansible:2.1-ubuntu
+FROM gmauro/ansible:2.6_debian9
 
 WORKDIR /tmp
 

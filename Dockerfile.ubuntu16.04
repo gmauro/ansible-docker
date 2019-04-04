@@ -1,0 +1,9 @@
+FROM gmauro/ansible:2.6_ubuntu16.04
+
+WORKDIR /tmp
+
+ADD local.yml /tmp/local.yml
+ADD defaults /tmp/defaults
+ADD tasks /tmp/tasks
+
+RUN ansible-playbook -i localhost, local.yml -e "@defaults/main.yml"
