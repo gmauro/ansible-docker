@@ -1,11 +1,17 @@
 - name: Install the latest version of Docker CE
-  apt: name={{ item }} state={{ packages_state }} update_cache={{ update_cache }}
-  with_items:
+  apt:
+    name: "{{ packages }}"
+    state: "{{ packages_state }}"
+  vars:
+    packages:
     - docker-ce
 
 - name: Install requirements for docker-py python package
-  apt: name={{ item }} state={{ packages_state }}
-  with_items:
+  apt:
+    name: "{{ packages }}"
+    state: "{{ packages_state }}"
+  vars:
+    packages:
     - python-pip
     - virtualenv
   when:
