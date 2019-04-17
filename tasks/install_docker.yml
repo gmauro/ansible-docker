@@ -6,6 +6,13 @@
     packages:
     - docker-ce
 
+- name: Add log limits to docker config
+  copy:
+    src: daemon.json
+    dest: /etc/docker
+  notify:
+    - restart docker
+
 - name: Install requirements for docker-py python package
   apt:
     name: "{{ packages }}"
