@@ -1,10 +1,23 @@
 - name: Install the latest version of Docker CE
   apt:
     name: "{{ packages }}"
-    state: "{{ packages_state }}"
+    state: "{{ docker_version }}"
   vars:
     packages:
     - docker-ce
+  when:
+    - install_docker
+    - docker_version == "latest"
+
+- name: Install a specific version of Docker CE
+  apt:
+    name: "{{ packages }}={{ docker_version }}"
+  vars:
+    packages:
+    - docker-ce
+  when:
+    - install_docker
+    - docker_version != "latest"
 
 - name: Add log limits to docker config
   copy:

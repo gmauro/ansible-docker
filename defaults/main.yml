@@ -1,6 +1,8 @@
 packages_state: present
 install_packages: yes
 update_cache: yes
+install_docker: yes
+docker_version: "latest"
 install_docker_py: yes
 install_docker_compose: yes
 docker_compose_version: "1.24.0"
