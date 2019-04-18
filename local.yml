@@ -6,5 +6,6 @@
 #   ansible-playbook -i localhost, local.yml [-e "@defaults/main.yml" ]
 - hosts: localhost
   connection: local
-  tasks:
-  - include: tasks/main.yml
+
+  roles:
+    - '.' # The current directory itself is the role
