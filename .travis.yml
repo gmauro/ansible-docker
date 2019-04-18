@@ -7,7 +7,6 @@ services:
 env:
   - FILENAME=Dockerfile.ubuntu16.04
   - FILENAME=Dockerfile.ubuntu18.04
-  - FILENAME=Dockerfile.debian8
   - FILENAME=Dockerfile.debian9
 
 script:
