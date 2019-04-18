@@ -20,8 +20,8 @@
   vars:
     packages:
     - software-properties-common
-  when:
-      - ansible_distribution == 'Ubuntu'
+  when: ansible_distribution == 'Ubuntu' or
+        ansible_distribution == 'Debian' and ansible_distribution_major_version == "9"
 
 - name: Install package software-properties
   apt:
@@ -32,3 +32,4 @@
     - python-software-properties
   when:
       - ansible_distribution == 'Debian'
+      - ansible_distribution_major_version == "8"
