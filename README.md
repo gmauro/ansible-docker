@@ -14,6 +14,7 @@ And add it to your play's roles:
 
 ```yaml
 - hosts: yourhost
+
   roles:
     - role: docker
       become: yes
@@ -23,9 +24,18 @@ And add it to your play's roles:
         name: "ubuntu"
         groups: docker
         append: yes
-	
+      become: yes
     - name: reset ssh connection to allow user changes to affect 'current login user'
       meta: reset_connection
+  post_tasks:
+    - name: Remove useless packages from the cache
+      apt:
+        autoclean: yes
+      become: yes
+    - name: Remove dependencies that are no longer required
+      apt:
+        autoremove: yes
+      become: yes
 
 ```
 
